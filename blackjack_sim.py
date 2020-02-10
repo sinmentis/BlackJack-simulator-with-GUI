@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 import sys
-from Deck_Card import Card, Deck, Player
+from Deck_Card_Player import Card, Deck, Player
 from PySide2 import QtCore, QtGui, QtWidgets
 
 def main():
@@ -17,14 +17,5 @@ def main():
     sys.exit(app.exec_())
 
 
-def test():
-    player = Player("Shun")
-    deck = Deck()
-    deck.shuffle()
-    player.get_card(deck.draw())
-    player.show_hand()
-
-
 if __name__ == "__main__":
-    # main()
-    test()
+    main()
