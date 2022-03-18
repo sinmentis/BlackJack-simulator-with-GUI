@@ -39,8 +39,12 @@ class Decks:
         return random_card
 
     def __str__(self):
-        template = f"""Total Deck: {self.number_of_deck}
-        current available card: {len(self.available_cards)}
-        current abandoned card: {len(self.abandon_cards)}"""
+        template = f"""
+=========
+Total Deck: {self.number_of_deck}
+current available card: {len(self.available_cards)}
+current abandoned card: {len(self.abandon_cards)}
+=========
+"""
 
         return template
