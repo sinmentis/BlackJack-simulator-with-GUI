@@ -1,5 +1,7 @@
-from Deck_Card_Player import Card, Deck, Player
 from tkinter import *
+
+from deck import Deck
+from player import Player
 
 RESOLUTION = "500x600"
 
