@@ -24,13 +24,16 @@ def draw_GUI(windows):
 
 
 def main():
-    banker = Player("Banker")
-    player = Player("Player")
+    banker = Player("Banker", 100)
+    player = Player("Player", 100)
     game = Blackjack([banker, player])
     game.init_game()
+    while True:
+        game.run_one_round()
 
-    window = GUI_init()
-    window.mainloop()
+    # TODO: Implement GUI version
+    # window = GUI_init()
+    # window.mainloop()
 
 
 if __name__ == "__main__":
