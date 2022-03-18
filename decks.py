@@ -3,13 +3,14 @@ import random
 from card import Card
 
 
-class Deck:
-    def __init__(self, joker=False):
+class Decks:
+    def __init__(self, number_of_deck=1, joker=False):
         self.available_cards = []
         self.abandon_cards = []
-        self.build_new_deck(joker)
+        self.number_of_deck = number_of_deck
+        self.build_new_deck(self.number_of_deck, joker)
 
-    def build_new_deck(self, joker=False):
+    def build_new_deck(self, number_of_deck, joker):
         self.available_cards = []
         self.abandon_cards = []
         for card_suit in ["Spade", "Club", "Diamond", "Heart"]:
@@ -18,6 +19,8 @@ class Deck:
         if joker:
             self.available_cards.append(Card("Joker", 15))
             self.available_cards.append(Card("Joker", 16))
+
+        self.available_cards = number_of_deck * self.available_cards
 
     def shuffle(self):
         for i in range(len(self.available_cards) - 1, 0, -1):
@@ -34,3 +37,10 @@ class Deck:
         self.available_cards.pop(random_card_index)
 
         return random_card
+
+    def __str__(self):
+        template = f"""Total Deck: {self.number_of_deck}
+        current available card: {len(self.available_cards)}
+        current abandoned card: {len(self.abandon_cards)}"""
+
+        return template

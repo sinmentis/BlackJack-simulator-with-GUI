@@ -1,29 +1,35 @@
 from tkinter import *
 
-from deck import Deck
+from blackjack import Blackjack
 from player import Player
 
 RESOLUTION = "500x600"
 
 
-def GUI_init(window):
+def GUI_init():
+    window = Tk()
     window.title("BlackJack Simulator")
     width_limit = (window.winfo_screenwidth() - int(RESOLUTION[:RESOLUTION.find("x")])) / 2
     height_limit = (window.winfo_screenheight() - int(RESOLUTION[RESOLUTION.find("x") + 1:])) / 2
     window.geometry("{0}+{1:.0f}+{2:.0f}".format(RESOLUTION, width_limit, height_limit))
 
+    window = draw_GUI(window)
 
-def init_game():
-    player = Player("Shun")
-    deck = Deck()
-    deck.shuffle()
-    return player, deck
+    return window
+
+
+def draw_GUI(windows):
+
+    return windows
 
 
 def main():
-    window = Tk()
-    player, deck = init_game()
-    GUI_init(window)
+    banker = Player("Banker")
+    player = Player("Player")
+    game = Blackjack([banker, player])
+    game.init_game()
+
+    window = GUI_init()
     window.mainloop()
 
 
